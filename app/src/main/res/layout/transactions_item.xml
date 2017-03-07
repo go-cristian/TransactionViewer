@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              style="@style/AppTheme.Transactions.ListItem"
+  >
+
+  <TextView
+    android:id="@+id/transactions_item_original"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/AppTheme.Transactions.ListItem.Original"
+    />
+
+  <TextView
+    android:id="@+id/transactions_item_value"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/AppTheme.Transactions.ListItem.Value"
+    />
+
+</LinearLayout>

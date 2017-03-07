@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="transactions_title">Transactions</string>
+
+  <style name="AppTheme.Transactions"/>
+
+  <style name="AppTheme.Transactions.ListItem">
+    <item name="android:layout_margin">5dp</item>
+    <item name="android:background">@color/colorAccent</item>
+    <item name="android:textColor">@android:color/white</item>
+  </style>
+
+  <style name="AppTheme.Transactions.ListItem.Original"/>
+
+  <style name="AppTheme.Transactions.ListItem.Value"/>
+</resources>

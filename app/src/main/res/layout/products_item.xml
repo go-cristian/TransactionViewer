@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              style="@style/AppTheme.Products.ListItem"
+  >
+
+  <TextView
+    android:id="@+id/products_item_sku"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/AppTheme.Products.ListItem.SKU"
+    />
+
+  <TextView
+    android:id="@+id/products_item_count"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/AppTheme.Products.ListItem.COUNT"
+    />
+</LinearLayout>
