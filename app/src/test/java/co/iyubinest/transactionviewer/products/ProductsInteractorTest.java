@@ -55,6 +55,23 @@ public class ProductsInteractorTest {
   private TestSubscriber subscriber = new TestSubscriber();
   private ProductsInteractor interactor;
 
+  private static String fromFile(String name) {
+    try {
+      InputStream resource =
+        ProductsInteractorTest.class.getClassLoader().getResourceAsStream(name);
+      BufferedReader reader = new BufferedReader(new InputStreamReader(resource));
+      StringBuilder result = new StringBuilder();
+      String partial = reader.readLine();
+      while (partial != null) {
+        result.append(partial);
+        partial = reader.readLine();
+      }
+      return result.toString();
+    } catch (Exception ignored) {
+      throw new IllegalArgumentException("File not found");
+    }
+  }
+
   @Before
   public void setup() throws Exception {
     server = new MockWebServer();
@@ -79,25 +96,8 @@ public class ProductsInteractorTest {
     server.enqueue(ratesResponse);
     server.enqueue(transactionsResponse);
     interactor.all().subscribe(subscriber);
-    List<Product> products = (List<Product>) ((ArrayList) subscriber.getEvents().get(0));
+    List<Product> products = (List<Product>) subscriber.getEvents().get(0);
     assertThat(products.size(), is(1));
     assertThat(products.get(0), is(firstProductsResult));
-  }
-
-  private static String fromFile(String name) {
-    try {
-      InputStream resource =
-        ProductsInteractorTest.class.getClassLoader().getResourceAsStream(name);
-      BufferedReader reader = new BufferedReader(new InputStreamReader(resource));
-      StringBuilder result = new StringBuilder();
-      String partial = reader.readLine();
-      while (partial != null) {
-        result.append(partial);
-        partial = reader.readLine();
-      }
-      return result.toString();
-    } catch (Exception ignored) {
-      throw new IllegalArgumentException("File not found");
-    }
   }
 }

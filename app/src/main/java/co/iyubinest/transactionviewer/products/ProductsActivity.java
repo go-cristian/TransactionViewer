@@ -48,6 +48,12 @@ public class ProductsActivity extends BaseActivity implements ProductsView {
   }
 
   @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    presenter.destroy();
+  }
+
+  @Override
   public void showLoading() {
     show(loadingView);
   }
@@ -64,6 +70,13 @@ public class ProductsActivity extends BaseActivity implements ProductsView {
     productsView.setListener(this::showTransactions);
   }
 
+  private void show(View view) {
+    loadingView.setVisibility(View.INVISIBLE);
+    productsView.setVisibility(View.INVISIBLE);
+    retryView.setVisibility(View.INVISIBLE);
+    view.setVisibility(View.VISIBLE);
+  }
+
   @OnClick(R.id.products_retry_button)
   public void retry() {
     presenter.init();
@@ -71,12 +84,5 @@ public class ProductsActivity extends BaseActivity implements ProductsView {
 
   private void showTransactions(Product product) {
     startActivity(TransactionsActivity.create(this, product));
-  }
-
-  private void show(View view) {
-    loadingView.setVisibility(View.INVISIBLE);
-    productsView.setVisibility(View.INVISIBLE);
-    retryView.setVisibility(View.INVISIBLE);
-    view.setVisibility(View.VISIBLE);
   }
 }

@@ -15,12 +15,14 @@
  */
 package co.iyubinest.transactionviewer.products;
 
+import io.reactivex.disposables.CompositeDisposable;
 import javax.inject.Inject;
 
 public class ProductsPresenter {
 
   private final ProductsView view;
   private final ProductsInteractor interactor;
+  private final CompositeDisposable disposable = new CompositeDisposable();
 
   @Inject
   public ProductsPresenter(ProductsView view, ProductsInteractor interactor) {
@@ -30,6 +32,10 @@ public class ProductsPresenter {
 
   public void init() {
     view.showLoading();
-    interactor.all().subscribe(view::showProducts, throwable -> view.showRetry());
+    disposable.add(interactor.all().subscribe(view::showProducts, throwable -> view.showRetry()));
+  }
+
+  public void destroy() {
+    disposable.dispose();
   }
 }
