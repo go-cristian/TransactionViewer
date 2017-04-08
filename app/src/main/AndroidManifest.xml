@@ -15,7 +15,7 @@
     android:theme="@style/AppTheme">
 
     <activity
-      android:name=".products.ProductsActivity"
+      android:name=".products.view.ProductsActivity"
       android:label="@string/products_title">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

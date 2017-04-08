@@ -26,6 +26,8 @@ import android.support.test.runner.AndroidJUnit4;
 import co.iyubinest.transactionviewer.App;
 import co.iyubinest.transactionviewer.DaggerRule;
 import co.iyubinest.transactionviewer.R;
+import co.iyubinest.transactionviewer.products.interactor.ProductsInteractor;
+import co.iyubinest.transactionviewer.products.view.ProductsActivity;
 import co.iyubinest.transactionviewer.transactions.Transaction;
 import io.reactivex.Flowable;
 import java.util.ArrayList;
@@ -86,6 +88,10 @@ public class ProductsActivityShould {
     onViewText(R.string.products_retry_msg).check(matches(isDisplayed()));
   }
 
+  private ViewInteraction onViewId(@IdRes int idRes) {return onView(withId(idRes));}
+
+  private ViewInteraction onViewText(@StringRes int stringRes) {return onView(withText(stringRes));}
+
   @Test
   public void showProductsWhenSuccess() throws Exception {
     when(interactor.all()).thenReturn(productsResult);
@@ -121,10 +127,6 @@ public class ProductsActivityShould {
       Espresso.pressBack();
     }
   }
-
-  private ViewInteraction onViewId(@IdRes int idRes) {return onView(withId(idRes));}
-
-  private ViewInteraction onViewText(@StringRes int stringRes) {return onView(withText(stringRes));}
 
   private static App app() {
     return (App) InstrumentationRegistry.getInstrumentation()

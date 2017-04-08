@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.interactor;
 
+import co.iyubinest.transactionviewer.products.GBPConversion;
+import co.iyubinest.transactionviewer.products.Product;
 import co.iyubinest.transactionviewer.transactions.Transaction;
 import io.reactivex.Flowable;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 
-class HttpProductsInteractor implements ProductsInteractor {
+public class HttpProductsInteractor implements ProductsInteractor {
 
   private final ProductsService service;
 
@@ -80,12 +82,12 @@ class HttpProductsInteractor implements ProductsInteractor {
     Flowable<List<TransactionResponse>> transactions();
   }
 
-  static class RateResponse {
+  public static class RateResponse {
 
-    String from, rate, to;
+    public String from, rate, to;
   }
 
-  static class TransactionResponse {
+  private static class TransactionResponse {
 
     String amount, sku, currency;
   }

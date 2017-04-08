@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.interactor;
 
-import dagger.Subcomponent;
+import co.iyubinest.transactionviewer.products.Product;
+import io.reactivex.Flowable;
+import java.util.List;
 
-@Subcomponent(modules = ProductsModule.class)
-public interface ProductsComponent {
+public interface ProductsInteractor {
 
-  void inject(ProductsActivity activity);
+  Flowable<List<Product>> all();
 }

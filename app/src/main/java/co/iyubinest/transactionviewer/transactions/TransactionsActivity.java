@@ -28,6 +28,10 @@ import co.iyubinest.transactionviewer.products.Product;
 public class TransactionsActivity extends BaseActivity {
 
   private static final String PRODUCT_KEY = "PRODUCT_KEY";
+  @BindView(R.id.transactions_list)
+  TransactionsWidget transactionsView;
+  @BindView(R.id.transactions_total)
+  TextView totalView;
 
   public static Intent create(BaseActivity activity, Product product) {
     Intent intent = new Intent(activity, TransactionsActivity.class);
@@ -36,11 +40,6 @@ public class TransactionsActivity extends BaseActivity {
     intent.putExtras(bundle);
     return intent;
   }
-
-  @BindView(R.id.transactions_list)
-  TransactionsWidget transactionsView;
-  @BindView(R.id.transactions_total)
-  TextView totalView;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {

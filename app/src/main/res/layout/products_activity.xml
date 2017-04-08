@@ -4,7 +4,7 @@
              android:layout_height="match_parent"
   >
 
-  <co.iyubinest.transactionviewer.products.ProductsWidget
+  <co.iyubinest.transactionviewer.products.view.ProductsWidget
     android:layout_width="match_parent"
     android:id="@+id/products_list"
     android:layout_height="match_parent"

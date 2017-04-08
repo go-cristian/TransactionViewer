@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.view;
 
+import co.iyubinest.transactionviewer.products.interactor.ProductsInteractor;
 import io.reactivex.disposables.CompositeDisposable;
 import javax.inject.Inject;
 

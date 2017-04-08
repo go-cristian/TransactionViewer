@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.collections;
+package co.iyubinest.transactionviewer.collections.graph;
 
 /**
  * This class models an undirected Edge in the Graph implementation.
@@ -109,13 +109,6 @@ public class Edge implements Comparable<Edge> {
   }
 
   /**
-   * @return String A String representation of this Edge
-   */
-  public String toString() {
-    return "({" + one + ", " + two + "}, " + weight + ")";
-  }
-
-  /**
    * @return int The hash code for this Edge
    */
   public int hashCode() {
@@ -132,6 +125,13 @@ public class Edge implements Comparable<Edge> {
     }
     Edge e = (Edge) other;
     return e.one.equals(this.one) && e.two.equals(this.two);
+  }
+
+  /**
+   * @return String A String representation of this Edge
+   */
+  public String toString() {
+    return "({" + one + ", " + two + "}, " + weight + ")";
   }
 }
 

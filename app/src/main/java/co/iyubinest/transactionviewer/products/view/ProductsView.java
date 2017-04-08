@@ -13,26 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.view;
 
-import dagger.Module;
-import dagger.Provides;
-import retrofit2.Retrofit;
+import co.iyubinest.transactionviewer.products.Product;
+import java.util.List;
 
-@Module
-public class ProductsModule {
+public interface ProductsView {
 
-  private final ProductsActivity activity;
-
-  public ProductsModule(ProductsActivity activity) {this.activity = activity;}
-
-  @Provides
-  public ProductsView productsActivity() {
-    return activity;
-  }
-
-  @Provides
-  public ProductsInteractor productsInteractor(Retrofit retrofit) {
-    return new AndroidHttpProductsInteractor(new HttpProductsInteractor(retrofit));
-  }
+  void showLoading();
+  void showRetry();
+  void showProducts(List<Product> products);
 }

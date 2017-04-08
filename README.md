@@ -7,6 +7,14 @@ The App tries to use a clean OOP structure that's focused on tests.
 This project doesn't contains any comments because it tries to be self-commented, this approach 
 encourages that the code is the documentation and it requires to be updated as it evolves.
 
+Screenshots
+---------
+
+<div align="center">
+    <img src="./art/list.png" />
+    <img src="./art/detail.png" />
+</div>
+
 Libraries
 ---------
 

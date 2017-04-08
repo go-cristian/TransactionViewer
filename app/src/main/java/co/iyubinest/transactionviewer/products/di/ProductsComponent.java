@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.di;
 
-import java.util.List;
+import co.iyubinest.transactionviewer.products.view.ProductsActivity;
+import dagger.Subcomponent;
 
-public interface ProductsView {
+@Subcomponent(modules = ProductsModule.class)
+public interface ProductsComponent {
 
-  void showLoading();
-  void showRetry();
-  void showProducts(List<Product> products);
+  void inject(ProductsActivity activity);
 }

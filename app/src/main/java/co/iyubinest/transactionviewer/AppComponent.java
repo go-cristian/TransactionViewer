@@ -15,8 +15,8 @@
  */
 package co.iyubinest.transactionviewer;
 
-import co.iyubinest.transactionviewer.products.ProductsComponent;
-import co.iyubinest.transactionviewer.products.ProductsModule;
+import co.iyubinest.transactionviewer.products.di.ProductsComponent;
+import co.iyubinest.transactionviewer.products.di.ProductsModule;
 import dagger.Component;
 import javax.inject.Singleton;
 

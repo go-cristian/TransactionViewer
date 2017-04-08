@@ -15,14 +15,15 @@
  */
 package co.iyubinest.transactionviewer.products;
 
-import co.iyubinest.transactionviewer.collections.Edge;
-import co.iyubinest.transactionviewer.collections.Graph;
-import co.iyubinest.transactionviewer.collections.Vertex;
+import co.iyubinest.transactionviewer.collections.graph.Edge;
+import co.iyubinest.transactionviewer.collections.graph.Graph;
+import co.iyubinest.transactionviewer.collections.graph.Vertex;
+import co.iyubinest.transactionviewer.products.interactor.HttpProductsInteractor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class GBPConversion {
+public class GBPConversion {
 
   private final HashMap<String, Double> rates;
 

@@ -13,12 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.interactor;
 
+import co.iyubinest.transactionviewer.products.Product;
 import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 
-public interface ProductsInteractor {
+public class AndroidHttpProductsInteractor implements ProductsInteractor {
 
-  Flowable<List<Product>> all();
+  private final HttpProductsInteractor interactor;
+
+  public AndroidHttpProductsInteractor(HttpProductsInteractor interactor) {
+    this.interactor = interactor;
+  }
+
+  @Override
+  public Flowable<List<Product>> all() {
+    return interactor.all().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+  }
 }

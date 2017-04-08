@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -27,6 +27,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.iyubinest.transactionviewer.R;
+import co.iyubinest.transactionviewer.products.Product;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,14 +56,8 @@ public class ProductsWidget extends RecyclerView {
 
   static class ProductsAdapter extends RecyclerView.Adapter<ProductsHolder> {
 
-    interface OnProductSelected {
-
-      void onSelected(Product product);
-    }
-
     private List<Product> products = new ArrayList<>();
     private OnProductSelected listener;
-
     public ProductsAdapter(List<Product> products) {
       this.products.addAll(products);
     }
@@ -90,21 +85,20 @@ public class ProductsWidget extends RecyclerView {
     public void setListener(OnProductSelected listener) {
       this.listener = listener;
     }
+
+    interface OnProductSelected {
+
+      void onSelected(Product product);
+    }
   }
 
   static class ProductsHolder extends RecyclerView.ViewHolder {
-
-    interface OnPositionSelected {
-
-      void onSelecion(int position);
-    }
 
     @BindView(R.id.products_item_sku)
     TextView skuView;
     @BindView(R.id.products_item_count)
     TextView countView;
     private OnPositionSelected listener;
-
     public ProductsHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
@@ -122,6 +116,11 @@ public class ProductsWidget extends RecyclerView {
 
     public void setListener(OnPositionSelected listener) {
       this.listener = listener;
+    }
+
+    interface OnPositionSelected {
+
+      void onSelecion(int position);
     }
   }
 }

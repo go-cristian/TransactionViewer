@@ -15,6 +15,9 @@
  */
 package co.iyubinest.transactionviewer.products;
 
+import co.iyubinest.transactionviewer.products.interactor.ProductsInteractor;
+import co.iyubinest.transactionviewer.products.view.ProductsPresenter;
+import co.iyubinest.transactionviewer.products.view.ProductsView;
 import co.iyubinest.transactionviewer.transactions.Transaction;
 import io.reactivex.Flowable;
 import java.util.ArrayList;

@@ -15,6 +15,8 @@
  */
 package co.iyubinest.transactionviewer.products;
 
+import co.iyubinest.transactionviewer.products.interactor.HttpProductsInteractor;
+import co.iyubinest.transactionviewer.products.interactor.ProductsInteractor;
 import co.iyubinest.transactionviewer.retrofit.AppRetrofit;
 import co.iyubinest.transactionviewer.transactions.Transaction;
 import io.reactivex.subscribers.TestSubscriber;

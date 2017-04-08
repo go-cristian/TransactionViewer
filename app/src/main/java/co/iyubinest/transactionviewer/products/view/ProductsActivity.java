@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.iyubinest.transactionviewer.products;
+package co.iyubinest.transactionviewer.products.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +23,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import co.iyubinest.transactionviewer.BaseActivity;
 import co.iyubinest.transactionviewer.R;
+import co.iyubinest.transactionviewer.products.Product;
+import co.iyubinest.transactionviewer.products.di.ProductsModule;
 import co.iyubinest.transactionviewer.transactions.TransactionsActivity;
 import java.util.List;
 import javax.inject.Inject;
